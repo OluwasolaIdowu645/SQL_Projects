@@ -1,0 +1,173 @@
+17 queries executed, 15 success, 2 errors, 9 warnings
+
+Query: SET @endDate := '2021-09-02'
+
+0 row(s) affected
+
+Execution Time : 0 sec
+Transfer Time  : 0.004 sec
+Total Time     : 0.005 sec
+-----------------------------------------------------------
+
+Query: SET @artStartDate :=''
+
+0 row(s) affected
+
+Execution Time : 0 sec
+Transfer Time  : 0.002 sec
+Total Time     : 0.002 sec
+-----------------------------------------------------------
+
+Query: DROP TABLE IF EXISTS full_line_list
+
+0 row(s) affected, 1 warning(s)
+
+Execution Time : 0.001 sec
+Transfer Time  : 1.015 sec
+Total Time     : 1.017 sec
+
+Note: To see complete list of warning(s), enable Tools -> Preferences -> General -> Show Warning(s) in Messages Tab
+-----------------------------------------------------------
+
+Query: DROP TABLE IF EXISTS IPT_list
+
+0 row(s) affected, 1 warning(s)
+
+Execution Time : 0.001 sec
+Transfer Time  : 1.011 sec
+Total Time     : 1.012 sec
+
+Note: To see complete list of warning(s), enable Tools -> Preferences -> General -> Show Warning(s) in Messages Tab
+-----------------------------------------------------------
+
+Query: DROP TABLE IF EXISTS presumtive_tb_list
+
+0 row(s) affected, 1 warning(s)
+
+Execution Time : 0 sec
+Transfer Time  : 1.012 sec
+Total Time     : 1.013 sec
+
+Note: To see complete list of warning(s), enable Tools -> Preferences -> General -> Show Warning(s) in Messages Tab
+-----------------------------------------------------------
+
+Query: DROP TABLE IF EXISTS OTZ_list
+
+0 row(s) affected, 1 warning(s)
+
+Execution Time : 0 sec
+Transfer Time  : 1.010 sec
+Total Time     : 1.011 sec
+
+Note: To see complete list of warning(s), enable Tools -> Preferences -> General -> Show Warning(s) in Messages Tab
+-----------------------------------------------------------
+
+Query: DROP TEMPORARY TABLE IF EXISTS final_line_list
+
+0 row(s) affected, 1 warning(s)
+
+Execution Time : 0 sec
+Transfer Time  : 0.002 sec
+Total Time     : 0.003 sec
+
+Note: To see complete list of warning(s), enable Tools -> Preferences -> General -> Show Warning(s) in Messages Tab
+-----------------------------------------------------------
+
+Query: CREATE TABLE full_line_list_HIE AS ( SELECT "IP_Name" AS "IP", (SELECT `state_province` FROM `location` WHERE `location_id` = 8 ...
+
+9894 row(s) affected
+
+Execution Time : 28 min 41 sec
+Transfer Time  : 1.019 sec
+Total Time     : 28 min 42 sec
+-----------------------------------------------------------
+
+Query: CREATE TABLE IPT_list_HIE AS ( SELECT pid1.identifier AS `PepID`, MAX(IF(obs1.concept_id=165727 AND obs1.value_coded= 1679,cn3.n...
+
+7502 row(s) affected
+
+Execution Time : 29.104 sec
+Transfer Time  : 1.020 sec
+Total Time     : 30.125 sec
+-----------------------------------------------------------
+
+Query: CREATE TABLE presumtive_tb_list_HIE AS ( SELECT pid1.identifier AS `PepID`, ( SELECT DATE_FORMAT(MAX(e.encounter_datetime),'%d/%...
+
+10978 row(s) affected
+
+Execution Time : 2 min 33 sec
+Transfer Time  : 1.007 sec
+Total Time     : 2 min 34 sec
+-----------------------------------------------------------
+
+Query: CREATE TABLE OTZ_list_HIE AS ( SELECT pid1.identifier AS `PepID`, DATE_FORMAT(pprg.date_enrolled,'%d/%m/%Y') AS Date_Enrolled_In...
+
+158 row(s) affected
+
+Execution Time : 51 min
+Transfer Time  : 1.003 sec
+Total Time     : 51 min 1 sec
+-----------------------------------------------------------
+
+Query: CREATE TEMPORARY TABLE final_line_list AS ( SELECT f.* , ip.`First_INH_Pickupdate`, ip.`Last_INH_Pickupdate`, ip.`CurrentINHRece...
+
+Error Code: 1146
+Table 'openmrs.full_line_list' doesn't exist
+
+Execution Time : 0 sec
+Transfer Time  : 0 sec
+Total Time     : 0 sec
+-----------------------------------------------------------
+
+Query: DROP TABLE IF EXISTS full_line_list
+
+0 row(s) affected, 1 warning(s)
+
+Execution Time : 0 sec
+Transfer Time  : 0.007 sec
+Total Time     : 0.007 sec
+
+Note: To see complete list of warning(s), enable Tools -> Preferences -> General -> Show Warning(s) in Messages Tab
+-----------------------------------------------------------
+
+Query: DROP TABLE IF EXISTS IPT_list
+
+0 row(s) affected, 1 warning(s)
+
+Execution Time : 0 sec
+Transfer Time  : 0.022 sec
+Total Time     : 0.022 sec
+
+Note: To see complete list of warning(s), enable Tools -> Preferences -> General -> Show Warning(s) in Messages Tab
+-----------------------------------------------------------
+
+Query: DROP TABLE IF EXISTS presumtive_tb_list
+
+0 row(s) affected, 1 warning(s)
+
+Execution Time : 0 sec
+Transfer Time  : 1.012 sec
+Total Time     : 1.013 sec
+
+Note: To see complete list of warning(s), enable Tools -> Preferences -> General -> Show Warning(s) in Messages Tab
+-----------------------------------------------------------
+
+Query: DROP TABLE IF EXISTS OTZ_list
+
+0 row(s) affected, 1 warning(s)
+
+Execution Time : 0 sec
+Transfer Time  : 1.010 sec
+Total Time     : 1.011 sec
+
+Note: To see complete list of warning(s), enable Tools -> Preferences -> General -> Show Warning(s) in Messages Tab
+-----------------------------------------------------------
+
+Query: SELECT * FROM final_line_list
+
+Error Code: 1146
+Table 'openmrs.final_line_list' doesn't exist
+
+Execution Time : 0 sec
+Transfer Time  : 0 sec
+Total Time     : 0 sec
